@@ -33,7 +33,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 
-		<fr.asenka.mymoviesapp.version>0.0.1-SNAPSHOT</fr.asenka.mymoviesapp.version>
+		<fr.asenka.mymoviesapp.version>0.1.0-SNAPSHOT</fr.asenka.mymoviesapp.version>
 		<org.springframework.boot.version>2.0.0.RELEASE</org.springframework.boot.version>
 	</properties>
 

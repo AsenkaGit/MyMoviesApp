@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class MyMoviesApp {
 
 	public static void main(String[] args) {
-
+		
 		SpringApplication.run(MyMoviesApp.class, args);
 	}
 }
