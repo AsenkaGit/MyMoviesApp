@@ -1,0 +1,118 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- ====================================================== -->
+	<!-- Maven data -->
+	<!-- ====================================================== -->
+
+	<groupId>fr.asenka.mymoviesapp</groupId>
+	<artifactId>mymoviesapp</artifactId>
+	<version>${fr.asenka.mymoviesapp.version}</version>
+	<packaging>pom</packaging>
+
+
+	<!-- ====================================================== -->
+	<!-- Project metadata -->
+	<!-- ====================================================== -->
+
+	<name>mymoviesapp</name>
+	<description>My application to store and mange the movies i've watched or want to watch</description>
+
+
+	<!-- ====================================================== -->
+	<!-- Properties -->
+	<!-- ====================================================== -->
+
+	<properties>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+
+		<fr.asenka.mymoviesapp.version>0.0.1-SNAPSHOT</fr.asenka.mymoviesapp.version>
+		<org.springframework.boot.version>2.0.0.RELEASE</org.springframework.boot.version>
+	</properties>
+
+	<!-- ====================================================== -->
+	<!-- Modules -->
+	<!-- ====================================================== -->
+
+	<modules>
+		<module>mymoviesapp-api</module>
+		<module>mymoviesapp-model</module>
+		<module>mymoviesapp-datasource</module>
+		<module>mymoviesapp-datasource-impl</module>
+	</modules>
+
+	<!-- ====================================================== -->
+	<!-- Dependances management -->
+	<!-- ====================================================== -->
+
+	<dependencyManagement>
+
+		<dependencies>
+
+			<!-- ==== Internal modules ==== -->
+			<dependency>
+				<groupId>fr.asenka.mymoviesapp</groupId>
+				<artifactId>mymoviesapp-api</artifactId>
+				<version>${fr.asenka.mymoviesapp.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>fr.asenka.mymoviesapp</groupId>
+				<artifactId>mymoviesapp-model</artifactId>
+				<version>${fr.asenka.mymoviesapp.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>fr.asenka.mymoviesapp</groupId>
+				<artifactId>mymoviesapp-datasource</artifactId>
+				<version>${fr.asenka.mymoviesapp.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>fr.asenka.mymoviesapp</groupId>
+				<artifactId>mymoviesapp-datasource-impl</artifactId>
+				<version>${fr.asenka.mymoviesapp.version}</version>
+			</dependency> 
+
+			<!-- ==== External libraries ==== -->
+
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.1-api</artifactId>
+				<version>1.0.2.Final</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>5.0.4.RELEASE</version>
+			</dependency>
+
+			<!-- Uses this for Spring Boot instead of the parent declaration -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${org.springframework.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+		</dependencies>
+
+	</dependencyManagement>
+
+	<!-- =============================================================== -->
+	<!-- Build -->
+	<!-- =============================================================== -->
+
+	<build>
+	</build>
+
+</project>

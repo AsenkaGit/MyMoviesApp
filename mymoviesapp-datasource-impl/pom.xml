@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<!-- ====================================================== -->
+	<!-- Parent project -->
+	<!-- ====================================================== -->
+
+	<parent>
+		<groupId>fr.asenka.mymoviesapp</groupId>
+		<artifactId>mymoviesapp</artifactId>
+		<version>${fr.asenka.mymoviesapp.version}</version>
+	</parent>
+
+	<!-- ====================================================== -->
+	<!-- Maven data -->
+	<!-- ====================================================== -->
+
+	<artifactId>mymoviesapp-datasource-impl</artifactId>
+
+
+	<!-- ====================================================== -->
+	<!-- Sub-Project metadata -->
+	<!-- ====================================================== -->
+
+	<name>mymoviesapp-datasource</name>
+	<description></description>
+
+
+	<!-- ====================================================== -->
+	<!-- Properties -->
+	<!-- ====================================================== -->
+	<properties>
+	</properties>
+
+
+	<!-- ====================================================== -->
+	<!-- Dependances -->
+	<!-- ====================================================== -->
+
+	<dependencies>
+
+		<!-- ==== Internal modules ==== -->
+
+		<dependency>
+			<groupId>fr.asenka.mymoviesapp</groupId>
+			<artifactId>mymoviesapp-model</artifactId>
+			<!-- Excludes all transitive dependecies -->
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>fr.asenka.mymoviesapp</groupId>
+			<artifactId>mymoviesapp-datasource</artifactId>
+		</dependency>
+
+		<!-- ==== External libraries ==== -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+		</dependency>
+
+	</dependencies>
+
+</project>
