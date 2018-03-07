@@ -27,10 +27,17 @@ public class MovieRestController {
 	@Autowired
 	private MovieDataProvider movieDataProvider;
 
-	@RequestMapping("/search/{title}")
-	public List<Movie> searchMovies(@PathVariable("title") String title) throws IOException {
+	@RequestMapping("/searchByTitle/{title}")
+	public List<Movie> searchByTitle(@PathVariable("title") String title) throws IOException {
 		
 		List<Movie> result = this.movieDataProvider.findMoviesByTitle(title);
+		return result;
+	}
+	
+	@RequestMapping("/searchById/{id}")
+	public Movie searchById(@PathVariable("id") String id) throws IOException {
+		
+		Movie result = this.movieDataProvider.findMovieById(id);
 		return result;
 	}
 	
