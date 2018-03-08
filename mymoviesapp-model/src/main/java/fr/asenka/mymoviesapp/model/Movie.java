@@ -9,8 +9,13 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import fr.asenka.mymoviesapp.model.Movie;
 
+@JsonInclude(Include.NON_NULL)
 @Entity
 @Table(name = "movies", indexes = { @Index(name = "idx_movies_title", columnList = "title") })
 public class Movie implements Serializable {
@@ -42,6 +47,7 @@ public class Movie implements Serializable {
 	@Column
 	private String myRating;
 
+	@JsonIgnore
 	@Version
 	private Integer version;
 

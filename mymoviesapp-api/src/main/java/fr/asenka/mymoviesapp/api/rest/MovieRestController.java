@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.asenka.mymoviesapp.api.service.MyMovieService;
 import fr.asenka.mymoviesapp.datasource.MovieDataProvider;
+import fr.asenka.mymoviesapp.datasource.exceptions.MovieNotFoundException;
 import fr.asenka.mymoviesapp.model.Movie;
 
 @RestController
@@ -35,7 +36,7 @@ public class MovieRestController {
 	}
 	
 	@RequestMapping("/searchById/{id}")
-	public Movie searchById(@PathVariable("id") String id) throws IOException {
+	public Movie searchById(@PathVariable("id") String id) throws IOException, MovieNotFoundException {
 		
 		Movie result = this.movieDataProvider.findMovieById(id);
 		return result;

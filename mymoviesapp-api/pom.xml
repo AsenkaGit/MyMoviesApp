@@ -55,7 +55,7 @@
 		
 		<dependency>
 			<groupId>fr.asenka.mymoviesapp</groupId>
-			<artifactId>mymoviesapp-datasource-impl</artifactId>
+			<artifactId>mymoviesapp-datasource-impl-omdb</artifactId>
 		</dependency>
 
 		<!-- ==== External libraries ==== -->

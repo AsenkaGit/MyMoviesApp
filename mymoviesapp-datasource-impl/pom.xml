@@ -17,15 +17,15 @@
 	<!-- Maven data -->
 	<!-- ====================================================== -->
 
-	<artifactId>mymoviesapp-datasource-impl</artifactId>
+	<artifactId>mymoviesapp-datasource-impl-omdb</artifactId>
 
 
 	<!-- ====================================================== -->
 	<!-- Sub-Project metadata -->
 	<!-- ====================================================== -->
 
-	<name>mymoviesapp-datasource</name>
-	<description></description>
+	<name>mymoviesapp-datasource-impl-omdb</name>
+	<description>OMDB Implementation of the movies data provider</description>
 
 
 	<!-- ====================================================== -->
@@ -46,7 +46,7 @@
 		<dependency>
 			<groupId>fr.asenka.mymoviesapp</groupId>
 			<artifactId>mymoviesapp-model</artifactId>
-			<!-- Excludes all transitive dependecies -->
+			<!-- Excludes all transitive dependencies -->
 			<exclusions>
 				<exclusion>
 					<groupId>*</groupId>
@@ -76,6 +76,32 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
 		</dependency>
+		
+		<!-- Test dependecies -->
+		
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-test</artifactId>
+    		<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+ 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- <dependency>
+    		<groupId>junit</groupId>
+    		<artifactId>junit</artifactId>
+    		<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-test</artifactId>
+    		<scope>test</scope>
+		</dependency>-->
 
 	</dependencies>
 

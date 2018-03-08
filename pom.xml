@@ -35,6 +35,7 @@
 
 		<fr.asenka.mymoviesapp.version>0.1.0-SNAPSHOT</fr.asenka.mymoviesapp.version>
 		<org.springframework.boot.version>2.0.0.RELEASE</org.springframework.boot.version>
+		<org.springframework.version>5.0.4.RELEASE</org.springframework.version>
 	</properties>
 
 	<!-- ====================================================== -->
@@ -45,7 +46,7 @@
 		<module>mymoviesapp-api</module>
 		<module>mymoviesapp-model</module>
 		<module>mymoviesapp-datasource</module>
-		<module>mymoviesapp-datasource-impl</module>
+		<module>mymoviesapp-datasource-impl-omdb</module>
 	</modules>
 
 	<!-- ====================================================== -->
@@ -77,23 +78,11 @@
 
 			<dependency>
 				<groupId>fr.asenka.mymoviesapp</groupId>
-				<artifactId>mymoviesapp-datasource-impl</artifactId>
+				<artifactId>mymoviesapp-datasource-impl-omdb</artifactId>
 				<version>${fr.asenka.mymoviesapp.version}</version>
 			</dependency> 
 
 			<!-- ==== External libraries ==== -->
-
-			<dependency>
-				<groupId>org.hibernate.javax.persistence</groupId>
-				<artifactId>hibernate-jpa-2.1-api</artifactId>
-				<version>1.0.2.Final</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-context</artifactId>
-				<version>5.0.4.RELEASE</version>
-			</dependency>
 
 			<!-- Uses this for Spring Boot instead of the parent declaration -->
 			<dependency>
@@ -104,6 +93,34 @@
 				<scope>import</scope>
 			</dependency>
 
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.1-api</artifactId>
+				<version>1.0.2.Final</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+			
+			<!-- Test dependecies -->
+			
+			<dependency>
+    			<groupId>org.springframework</groupId>
+    			<artifactId>spring-test</artifactId>
+    			<version>${org.springframework.version}</version>
+    			<scope>test</scope>
+			</dependency>
+			
+			<dependency>
+    			<groupId>junit</groupId>
+    			<artifactId>junit</artifactId>
+    			<version>4.12</version>
+    			<scope>test</scope>
+			</dependency>
+			
 		</dependencies>
 
 	</dependencyManagement>

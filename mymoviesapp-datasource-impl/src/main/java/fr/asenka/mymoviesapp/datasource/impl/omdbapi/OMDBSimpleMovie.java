@@ -1,14 +1,19 @@
-package fr.asenka.mymoviesapp.datasource.impl;
+package fr.asenka.mymoviesapp.datasource.impl.omdbapi;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import fr.asenka.mymoviesapp.model.Movie;
 
+/**
+ * A sub result of the OMDBSearchByTitleResult.
+ * 
+ * @see OMDBSearchByTitleResult
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SearchedByIDResult extends AbstractOMDBResult {
+public class OMDBSimpleMovie {
 
-	private String id;
+	private String imdbID;
 
 	private String title;
 
@@ -16,22 +21,18 @@ public class SearchedByIDResult extends AbstractOMDBResult {
 
 	private String year;
 
-	private String director;
-
-	private String country;
-
 	private String poster;
 
-	@JsonProperty("id")
-	public String getId() {
+	@JsonProperty("imdbID")
+	public String getImdbId() {
 
-		return this.id;
+		return this.imdbID;
 	}
 
 	@JsonProperty("imdbID")
-	public void setId(String id) {
+	public void setImdbId(String id) {
 
-		this.id = id;
+		this.imdbID = id;
 	}
 
 	@JsonProperty("title")
@@ -58,30 +59,6 @@ public class SearchedByIDResult extends AbstractOMDBResult {
 		this.year = year;
 	}
 
-	@JsonProperty("director")
-	public String getDirector() {
-
-		return this.director;
-	}
-
-	@JsonProperty("Director")
-	public void setDirector(String director) {
-
-		this.director = director;
-	}
-
-	@JsonProperty("country")
-	public String getCountry() {
-
-		return this.country;
-	}
-
-	@JsonProperty("Country")
-	public void setCountry(String country) {
-
-		this.country = country;
-	}
-
 	@JsonProperty("type")
 	public String getType() {
 
@@ -106,22 +83,22 @@ public class SearchedByIDResult extends AbstractOMDBResult {
 		this.poster = poster;
 	}
 
+	/**
+	 * Convert this OMDB Movie into a Movie entity
+	 * 
+	 * @return a movie entity based on the OMDB result values. The result cannot be null because the instance should not exist if
+	 *         it has no values
+	 */
 	public Movie getMovie() {
 
-		if (!getResponse()) {
-			return null;
-		} else {
-			Movie movie = new Movie();
+		final Movie movie = new Movie();
 
-			movie.setCountry(this.country);
-			movie.setDirector(this.director);
-			movie.setId(this.id);
-			movie.setYear(this.year);
-			movie.setPoster(this.poster);
-			movie.setTitle(this.title);
-			movie.setType(this.type);
+		movie.setId(this.imdbID);
+		movie.setYear(this.year);
+		movie.setPoster(this.poster);
+		movie.setTitle(this.title);
+		movie.setType(this.type);
 
-			return movie;
-		}
+		return movie;
 	}
 }
